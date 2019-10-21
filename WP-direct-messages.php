@@ -36,16 +36,17 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'WP_DIRECT_MESSAGES_VERSION', '1.0.0' );
-
+define( 'WP_DIRECT_MESSAGES_URL', plugin_dir_url(__FILE__) );
 /*
 * Require activation class
 */
-require plugin_dir_path( __FILE__) . 'includes/class-wp_direct_messages_activator.php';
+
 
 /**
  * The code that runs during plugin activation.
  */
 function activate_wp_direct_messages() {
+	require plugin_dir_path( __FILE__) . 'includes/class-wp_direct_messages_activator.php';
 	$activator = new WP_direct_messages_activator();
 	$activator->run();
 }
